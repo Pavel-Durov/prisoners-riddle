@@ -9,7 +9,7 @@ class TestRiddle(unittest.TestCase):
         for x in range(count):
             picked_nums = generator_func()
             shuffle(picked_nums)
-            prisoner = solve(picked_nums, verbose=True)
+            prisoner = solve(picked_nums)
             self.assertNotEqual(prisoner, None)
 
     def test_repeat(self):

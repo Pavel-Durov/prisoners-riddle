@@ -14,8 +14,7 @@ def generate_prisoners(assigned_numbers):
 
 
 def get_prisoners_assigned_numbers(prisoners):
-    mapped = map(lambda p: p['assigned'], prisoners)
-    return list(mapped)
+    return list(map(lambda p: p['assigned'], prisoners))
 
 
 def calculate_guess(others, pick, verbose):
@@ -25,7 +24,7 @@ def calculate_guess(others, pick, verbose):
     for i in range(1, prisoners_count + 1):
         calc = (total_sum + i) % prisoners_count
         if verbose:
-            print('{} + {} % {} == {}'.format(total_sum, i, prisoners_count, pick -1))
+            print('{} + {} % {} == {}'.format(total_sum, i, prisoners_count, pick - 1))
         if calc == (pick - 1):
             guess = i
             break
@@ -39,16 +38,21 @@ def prisoner_guess(other_prisoners, pick, verbose):
 
 
 def solve(assigned_numbers, verbose=False):
-    correct = None
+    answer = None
     if verbose:
         print(assigned_numbers)
+
     prisoners = generate_prisoners(assigned_numbers)
+
     for i, prisoner in enumerate(prisoners):
-        print('prisoner {} guess'.format(i))
+        if verbose:
+            print('prisoner {} guess'.format(i))
+
         others = list(filter(lambda p: prisoner != p, prisoners))
         guess = prisoner_guess(others, prisoner['pick'], verbose)
+
         if guess == prisoner['assigned']:
-            correct = prisoner
+            answer = prisoner
             break
 
-    return correct
+    return answer
