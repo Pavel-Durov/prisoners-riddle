@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/Pavel-Durov/prisoners-riddle.svg?branch=master)](https://travis-ci.org/Pavel-Durov/prisoners-riddle)
 # Prisoners riddle
 
 ### The riddle
